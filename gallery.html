@@ -1,45 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery - MKM Premier League</title>
-  <link rel="icon" type="image/x-icon" href="images/logo.jpg">
-  <link rel="stylesheet" href="mkmHome.css" />
-  <script src="script.js" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> MKM Kho Kho — Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="gallery.css" />
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-left">
-      <img class="logo-img" src="images/logo.jpg" alt="Logo">
-      <span class="company-name">MKM Kho Kho Premier League</span>
-    </div>
-    <ul class="nav-menu">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="gallery.html" class="active">Gallery</a></li>
-      <li>
-        <a href="mkm-club.html">MKM Club</a>
-        <ul class="dropdown">
-          <li><a href="road-to-mkm.html">Road To MKM Kho Kho League</a></li>
-          <li><a href="mkm-rules.html">MKM Kho Kho Rules</a></li>
-        </ul>
-      </li>
-      <li><a href="management.html">Management</a></li>
-      <li><a href="about-us.html">About Us</a></li>
-      <li style="position:relative;">
-        <a class="contact-btn" href="contact.html">CONTACT</a>
-        <div class="contact-dropdown">
-          <p><strong>Contact Us</strong></p>
-          <p>📞 Phone: 9131507749</p>
-          <p>📧 Email: script2prevail@gmail.com</p>
-        </div>
-      </li>
-    </ul>
-  </nav>
-  
-  <main>
-    <h1>Gallery Page</h1>
-    <p>Gallery content goes here.</p>
-  </main>
+  <button class="theme-toggle" id="themeToggle">Switch to Light Mode</button>
+  <header class="hero">
+    <h1 class="title">Kho Kho Gallery</h1>
+    <p class="subtitle">Celebrate the spirit and action of Kho Kho</p>
+  </header>
+  <div class="controls">
+    <button class="chip active" data-filter="all">All</button>
+    <button class="chip" data-filter="attack">Attack</button>
+    <button class="chip" data-filter="defense">Defense</button>
+    <button class="chip" data-filter="team">Team</button>
+    <button class="chip" data-filter="training">Training</button>
+  </div>
+  <section class="grid" id="grid">
+    <div class="card" data-tags="attack">
+      <img src="https://images.unsplash.com/photo-1602804362317-4490f58b5bfc?q=80&w=600" alt="Kho Kho Attack" />
+      <span class="label">Attack</span>
+    </div>
+    <div class="card" data-tags="defense">
+      <img src="https://images.unsplash.com/photo-1531327431342-69f3d2e6b8a0?q=80&w=600" alt="Kho Kho Defense" />
+      <span class="label">Defense</span>
+    </div>
+    <div class="card" data-tags="team">
+      <img src="https://images.unsplash.com/photo-1518599807935-37015b9cefcb?q=80&w=600" alt="Kho Kho Team" />
+      <span class="label">Team</span>
+    </div>
+    <div class="card" data-tags="training">
+      <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=600" alt="Kho Kho Training" />
+      <span class="label">Training</span>
+    </div>
+  </section>
+  <div class="video-strip">
+    <video autoplay muted loop>
+      <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+    </video>
+    <div class="running-text">Kho Kho in Action!</div>
+  </div>
+  <footer> MKM Kho Kho Gallery </footer>
+  <script>
+    // Dark / Light mode 
+    const toggleBtn = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+    if(localStorage.getItem('theme') === 'light'){
+      htmlEl.classList.add('light');
+      toggleBtn.textContent = 'Switch to Dark Mode';
+    }
+    toggleBtn.addEventListener('click', ()=>{
+      htmlEl.classList.toggle('light');
+      if(htmlEl.classList.contains('light')){
+        localStorage.setItem('theme','light');
+        toggleBtn.textContent = 'Switch to Dark Mode';
+      } else {
+        localStorage.setItem('theme','dark');
+        toggleBtn.textContent = 'Switch to Light Mode';
+      }
+    });
+
+    // Filter buttons
+    const chips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.card');
+    chips.forEach(chip =>{
+      chip.addEventListener('click', ()=>{
+        chips.forEach(c=>c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.getAttribute('data-filter');
+        cards.forEach(card =>{
+          if(filter === 'all' || card.dataset.tags.includes(filter)){
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

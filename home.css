@@ -1,0 +1,218 @@
+:root {
+  --bg: #0f1220;
+  --surface: #171a2b;
+  --card: #1e2338;
+  --text: #e9ecf8;
+  --muted: #a9b0d2;
+  --accent: #ff6600; /* orange */
+  --accent-2: #0077ff; /* blue */
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.hero {
+  height: 100vh;
+  background: url("images/bgimg.png") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent);
+}
+.logo img {
+  height: 50px;
+  margin-right: 12px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+}
+nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: var(--card);
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+}
+.dropdown.open .dropdown-menu {
+  display: flex;
+}
+.dropdown-menu a {
+  padding: 10px;
+  color: var(--text);
+}
+.dropdown-menu a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.hero-content {
+  text-align: center;
+  padding-bottom: 80px;
+}
+.hero-content h1 {
+  font-size: 50px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.hero-content p {
+  margin: 20px 0;
+  font-size: 20px;
+  color: var(--muted);
+}
+.btns a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+}
+.btns a:hover {
+  background: var(--accent-2);
+  transform: scale(1.05);
+}
+
+/* Teams Section */
+/* Teams Section */
+.teams-section {
+  padding: 80px 20px;
+  background: var(--surface);
+  text-align: center;
+}
+.teams-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Teams container */
+.teams-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Team Card */
+.team-card {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 15px 20px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.team-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 20px;
+  background: #fff;
+  padding: 5px;
+}
+
+.team-info h3 {
+  font-size: 20px;
+  margin: 0;
+}
+.team-info p {
+  margin: 2px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Gradient Backgrounds for Teams */
+.gradient-yellow-blue {
+  background: linear-gradient(90deg, #fdd835, #0d47a1);
+}
+.gradient-red-purple {
+  background: linear-gradient(90deg, #e53935, #8e24aa);
+}
+.gradient-blue-darkblue {
+  background: linear-gradient(90deg, #1e88e5, #0d47a1);
+}
+.gradient-brown-red {
+  background: linear-gradient(90deg, #6d4c41, #c62828);
+}
+.gradient-pink-purple {
+  background: linear-gradient(90deg, #d81b60, #4a148c);
+}
+.gradient-orange-blue {
+  background: linear-gradient(90deg, #fb8c00, #1565c0);
+}
+
+/* Contact Section */
+.contact-section {
+  display: none;
+  text-align: center;
+  padding: 50px 20px;
+  background: var(--card);
+}
+.contact-section.show {
+  display: block;
+}
+.contact-section h2 {
+  color: var(--accent);
+}

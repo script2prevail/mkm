@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MKM Kho Kho Premier League</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css" />
+</head>
+<body>
+<div class="hero">
+  <header>
+    <div class="logo">
+      <img src="images/mkmlogo.png" alt="Logo">
+      MKM League
+    </div>
+    <nav>
+      <a href="home.html" class="active">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <!-- ✅ Management Dropdown -->
+      <div class="dropdown">
+        <a href="#" id="managementBtn">Management ▾</a>
+        <div class="dropdown-menu">
+          <a href="founder_committee.html">Core Management</a>
+          <a href="executive_committee.html">MKM Management</a>
+        </div>
+      </div>
+      <!-- ✅ MKM Dropdown -->
+      <div class="dropdown">
+        <a href="#" id="mkmBtn">MKM ▾</a>
+        <div class="dropdown-menu">
+          <a href="MKM_khokho_rules.html">MKM Kho Kho Rules</a>
+          <a href="mkm_khokho_road_map.html">MKM Kho Kho Roadmap</a>
+        </div>
+      </div>
+
+      <a href="#teamsSection" id="teamsBtn">Teams</a>
+      <a id="contactBtn">Contact Us</a>
+    </nav>
+  </header>
+
+  <div class="hero-content">
+    <h1>MKM Kho Kho Premier League</h1>
+    <p>Experience the thrill of India's fastest traditional sport!</p>
+    <div class="btns">
+      <a href="#">Join Now</a>
+      <a href="#">Learn More</a>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Teams Section -->
+<!-- ✅ Teams Section -->
+<section class="teams-section" id="teamsSection">
+  <h2>Meet the Teams</h2>
+  <div class="teams-container">
+
+    <div class="team-card gradient-yellow-blue">
+      <img src="images/chennai.png" alt="Chennai Quick Guns">
+      <div class="team-info">
+        <h3>Chennai</h3>
+        <p>Quick Guns</p>
+      </div>
+    </div>
+
+    <div class="team-card gradient-red-purple">
+      <img src="images/gujarat.png" alt="Gujarat Giants">
+      <div class="team-info">
+        <h3>Gujarat</h3>
+        <p>Giants</p>
+      </div>
+    </div>
+
+    <div class="team-card gradient-blue-darkblue">
+      <img src="images/mumbai.png" alt="Mumbai Khiladis">
+      <div class="team-info">
+        <h3>Mumbai</h3>
+        <p>Khiladis</p>
+      </div>
+    </div>
+
+    <div class="team-card gradient-brown-red">
+      <img src="images/odisha.png" alt="Odisha Juggernauts">
+      <div class="team-info">
+        <h3>Odisha</h3>
+        <p>Juggernauts</p>
+      </div>
+    </div>
+
+    <div class="team-card gradient-pink-purple">
+      <img src="images/rajasthan.png" alt="Rajasthan Warriors">
+      <div class="team-info">
+        <h3>Rajasthan</h3>
+        <p>Warriors</p>
+      </div>
+    </div>
+
+    <div class="team-card gradient-orange-blue">
+      <img src="images/telugu.png" alt="Telugu Yoddhas">
+      <div class="team-info">
+        <h3>Telugu</h3>
+        <p>Yoddhas</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- Contact Section -->
+<div class="contact-section" id="contactSection">
+  <h2>Contact Us</h2>
+  <p>Email: info@mkmkho.com | Phone: +91 98765 43210</p>
+  <p>Address: MKM Sports Complex, Nagpur, India</p>
+</div>
+
+<script>
+// ✅ Dropdown toggle for MKM
+const mkmBtn = document.getElementById('mkmBtn');
+const mkmDropdown = mkmBtn.parentElement;
+mkmBtn.addEventListener('click', (e)=>{
+  e.preventDefault();
+  mkmDropdown.classList.toggle('open');
+});
+
+// ✅ Dropdown toggle for Management
+const managementBtn = document.getElementById('managementBtn');
+const managementDropdown = managementBtn.parentElement;
+managementBtn.addEventListener('click', (e)=>{
+  e.preventDefault();
+  managementDropdown.classList.toggle('open');
+});
+
+// Contact Us toggle
+const contactBtn = document.getElementById('contactBtn');
+const contactSection = document.getElementById('contactSection');
+contactBtn.addEventListener('click', (e)=>{
+  e.preventDefault();
+  contactSection.classList.toggle('show');
+});
+
+// Smooth scroll for Teams
+document.getElementById("teamsBtn").addEventListener("click", function(e){
+  e.preventDefault();
+  document.getElementById("teamsSection").scrollIntoView({ behavior: "smooth" });
+});
+
+// Close dropdowns if clicked outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.dropdown')) {
+    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+</script>
+</body>
+</html>

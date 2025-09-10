@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kho Kho Rules</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="MKM_khokho_rules.css"/>
+</head>
+<body>
+<button class="theme-toggle" id="themeToggle">Switch to Light Mode</button>
+<header>Kho Kho Rules</header>
+<div class="rules-container">
+  <div class="rule-card">
+    <div class="emoji">🏃‍♂️</div>
+    <h3>Team Composition</h3>
+    <p>Each team consists of 12 players, with 9 taking the field and 3 substitutes.</p>
+  </div>
+  <div class="rule-card">
+    <div class="emoji">⏱️</div>
+    <h3>Time Limit</h3>
+    <p>The match is played in two innings of 9 minutes each with a break in between.</p>
+  </div>
+  <div class="rule-card">
+    <div class="emoji">➡️</div>
+    <h3>Direction Change</h3>
+    <p>Chasers can only change direction by touching a sitting teammate and shouting "Kho".</p>
+  </div>
+  <div class="rule-card">
+    <div class="emoji">📏</div>
+    <h3>Field Dimensions</h3>
+    <p>The field measures 27m x 16m, divided into equal halves with a central lane.</p>
+  </div>
+  <div class="rule-card">
+    <div class="emoji">🚫</div>
+    <h3>Foul Play</h3>
+    <p>Pushing, holding, or blocking runners is strictly prohibited and leads to penalties.</p>
+  </div>
+  <div class="rule-card">
+    <div class="emoji">🏅</div>
+    <h3>Winning Criteria</h3>
+    <p>The team that tags the most opponents in the least time wins the match.</p>
+  </div>
+</div>
+<div class="footer-anim">
+  <div class="runner">🏃‍♂️</div>
+  <div class="runner">🏃‍♀️</div>
+  <div class="runner">🏃‍♂️</div>
+</div>
+<footer>Kho Kho Rules © 2025</footer>
+<script>
+const toggleBtn = document.getElementById('themeToggle');
+const htmlEl = document.documentElement;
+if(localStorage.getItem('theme') === 'light'){
+  htmlEl.classList.add('light');
+  toggleBtn.textContent = 'Switch to Dark Mode';
+}
+toggleBtn.addEventListener('click', ()=>{
+  htmlEl.classList.toggle('light');
+  if(htmlEl.classList.contains('light')){
+    localStorage.setItem('theme','light');
+    toggleBtn.textContent = 'Switch to Dark Mode';
+  } else {
+    localStorage.setItem('theme','dark');
+    toggleBtn.textContent = 'Switch to Light Mode';
+  }
+});
+</script>
+</body>
+</html>

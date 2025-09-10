@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kho Kho — Participation Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="MKM_khokho_road_map.css" />
+</head>
+<body>
+<div class="topbar"><button class="toggle" id="themeToggle">Switch to Light</button></div>
+
+<header>
+  <h1> MKM Kho Kho — Participation Roadmap</h1>
+  <p>Follow this creative road to register, prepare and excel in the Kho Kho match.</p>
+</header>
+
+<div class="container">
+  <!-- Left Roadmap -->
+  <div class="card" style="flex:2;">
+    <p style="margin:0;color:var(--muted)">Click each pin for more info. Watch the animated marker travel the route.</p>
+    <div class="road-wrap">
+      <div class="road-bg"></div>
+      <svg class="road-svg" viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="g1" x1="0%" x2="100%">
+            <stop offset="0%" stop-color="var(--accent)"/>
+            <stop offset="100%" stop-color="var(--accent2)"/>
+          </linearGradient>
+        </defs>
+        <path id="roadPath" d="M60,540 C200,440 240,100 400,140 C560,180 580,480 760,420 C880,380 940,220 1100,260" stroke="url(#g1)" stroke-width="18" stroke-linecap="round" fill="none"/>
+      </svg>
+
+      <div class="steps">
+        <div class="step" style="left:5%; top:90%;" data-title="Register" data-desc="Fill the form & pay entry fee. Upload ID & team list.">
+          <div class="pin pulse">1</div>
+          <div class="label">Register</div>
+        </div>
+        <div class="step" style="left:30%; top:28%;" data-title="Fitness Check" data-desc="Basic health screening and clearance.">
+          <div class="pin">2</div>
+          <div class="label">Fitness Check</div>
+        </div>
+        <div class="step" style="left:52%; top:42%;" data-title="Training Camp" data-desc="Attend drills: chasing, tagging, and stamina building.">
+          <div class="pin">3</div>
+          <div class="label">Training Camp</div>
+        </div>
+        <div class="step" style="left:75%; top:70%;" data-title="Strategy Session" data-desc="Team formations, roles & practice matches.">
+          <div class="pin">4</div>
+          <div class="label">Strategy</div>
+        </div>
+        <div class="step" style="left:95%; top:35%;" data-title="Match Day" data-desc="Arrive early, warm-up, and get ready to win.">
+          <div class="pin">5</div>
+          <div class="label">Match Day</div>
+        </div>
+        <div class="marker" id="marker" style="left:5%; top:90%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Details -->
+  <div class="card details" style="flex:1;">
+    <h2>Roadmap Details</h2>
+    <ul>
+      <li><strong>1. Register:</strong> Complete your registration with required documents and fees.</li>
+      <li><strong>2. Fitness Check:</strong> Ensure health clearance and basic fitness test.</li>
+      <li><strong>3. Training Camp:</strong> Participate in drills, learn skills and stamina building.</li>
+      <li><strong>4. Strategy Session:</strong> Understand roles and team coordination.</li>
+      <li><strong>5. Match Day:</strong> Be on time, warm up, and give your best performance.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="infoModal">
+  <div class="modal-content">
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+    <button class="close-btn" id="closeModal">Close</button>
+  </div>
+</div>
+
+<script>
+  // Theme toggle
+  const themeBtn=document.getElementById('themeToggle');
+  const htmlEl=document.documentElement;
+  const stored=localStorage.getItem('theme');
+  if(stored==='light') htmlEl.classList.add('light'), themeBtn.textContent='Switch to Dark';
+  else themeBtn.textContent='Switch to Light';
+  themeBtn.addEventListener('click',()=>{
+    const isLight=htmlEl.classList.toggle('light');
+    localStorage.setItem('theme',isLight?'light':'dark');
+    themeBtn.textContent=isLight?'Switch to Dark':'Switch to Light';
+  });
+
+  // Modal logic
+  const modal=document.getElementById('infoModal');
+  const modalTitle=document.getElementById('modalTitle');
+  const modalDesc=document.getElementById('modalDesc');
+  const closeBtn=document.getElementById('closeModal');
+
+  document.querySelectorAll('.step').forEach(step=>{
+    step.addEventListener('click',()=>{
+      modalTitle.textContent=step.dataset.title;
+      modalDesc.textContent=step.dataset.desc;
+      modal.classList.add('active');
+    });
+  });
+  closeBtn.addEventListener('click',()=>modal.classList.remove('active'));
+  modal.addEventListener('click',e=>{if(e.target===modal) modal.classList.remove('active');});
+
+  // Marker auto-move
+  const path=document.getElementById('roadPath');
+  const marker=document.getElementById('marker');
+  const length=path.getTotalLength();
+  let start=null;
+  function animateMarker(ts){
+    if(!start) start=ts;
+    const t=((ts-start)%20000)/20000;
+    const pt=path.getPointAtLength(length*t);
+    const left=(pt.x/path.ownerSVGElement.viewBox.baseVal.width)*100;
+    const top=(pt.y/path.ownerSVGElement.viewBox.baseVal.height)*100;
+    marker.style.left=left+'%'; marker.style.top=top+'%';
+    requestAnimationFrame(animateMarker);
+  }
+  requestAnimationFrame(animateMarker);
+</script>
+</body>
+</html>
