@@ -28,7 +28,87 @@ body {
   overflow-x: hidden;
   position: relative;
 }
+header {
+    padding: 84px 20px 18px;
+    text-align: center;
+    position: relative;
+}
 
+header h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    margin: 0;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    color: var(--accent);
+}
+
+/* Header with less transparent black */
+.header-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px;
+  background: rgba(0,0,0,0.85); /* less transparent (more opaque) */
+  position: relative;
+  z-index: 10;
+}
+
+/* Logo */
+.logo { display:flex; align-items:center; }
+.logo img { height: 50px; }
+
+/* NAV */
+nav {
+  display:flex;
+  gap: 18px;
+  align-items:center;
+}
+
+/* Apply same hover to all header buttons (links & dropdown triggers) */
+nav a,
+nav a:visited,
+nav a:focus,
+nav a:active,
+nav .dropdown > a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: color 180ms ease, transform 180ms ease, background 180ms ease;
+  display: inline-block;
+}
+
+/* Unified hover/active effect for all header items */
+nav a:hover,
+nav .dropdown > a:hover,
+nav a:focus,
+nav .dropdown > a:focus {
+  color: var(--accent);            /* orange color on hover */
+  transform: translateY(-2px);     /* subtle lift */
+  background: rgba(255,102,0,0.06);/* light hover background (very subtle) */
+}
+
+/* Remove orange bottom underline effect entirely (no ::after used) */
+
+/* Dropdown menu */
+.dropdown { position: relative; }
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: var(--card);
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.dropdown:hover .dropdown-menu,
+.dropdown.open .dropdown-menu { display: flex; }
+.dropdown-menu a { padding: 10px 14px; color: var(--text); }
+.dropdown-menu a:hover { background: var(--accent); color: #fff; }
 /* Background animation */
 body::before {
   content: "";
@@ -44,40 +124,10 @@ body::before {
   100% { background-position: 100% 0%, 0% 100%; }
 }
 
-/* Header */
-header {
-  text-align: center;
-  padding: 60px 20px 30px;
-  font-size: 48px;
-  font-weight: 800;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: textGlow 3s infinite alternate;
-}
 @keyframes textGlow {
   0% { text-shadow: 0 0 10px var(--accent); }
   100% { text-shadow: 0 0 20px var(--accent-2); }
 }
-
-/* Toggle Button */
-.theme-toggle {
-  position: fixed;
-  right: 18px;
-  top: 18px;
-  z-index: 100;
-  background: var(--accent);
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  font-size: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.3);
-  transition: background 0.3s, transform 0.3s;
-}
-.theme-toggle:hover { background: var(--accent-2); transform: scale(1.05); }
 
 /* Rules Section */
 .rules-container {

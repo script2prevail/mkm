@@ -1,0 +1,238 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: url("images/background.jpg") no-repeat center center/cover;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: -1;
+}
+/* Header with less transparent black */
+.header-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px;
+  background: rgba(0,0,0,0.85); /* less transparent (more opaque) */
+  position: relative;
+  z-index: 10;
+}
+
+/* Logo */
+.logo { display:flex; align-items:center; }
+.logo img { height: 50px; }
+
+/* NAV */
+nav {
+  display:flex;
+  gap: 18px;
+  align-items:center;
+}
+
+/* Apply same hover to all header buttons (links & dropdown triggers) */
+nav a,
+nav a:visited,
+nav a:focus,
+nav a:active,
+nav .dropdown > a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: color 180ms ease, transform 180ms ease, background 180ms ease;
+  display: inline-block;
+}
+
+/* Unified hover/active effect for all header items */
+nav a:hover,
+nav .dropdown > a:hover,
+nav a:focus,
+nav .dropdown > a:focus {
+  color: var(--accent);            /* orange color on hover */
+  transform: translateY(-2px);     /* subtle lift */
+  background: rgba(255,102,0,0.06);/* light hover background (very subtle) */
+}
+
+/* Remove orange bottom underline effect entirely (no ::after used) */
+
+/* Dropdown menu */
+.dropdown { position: relative; }
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: var(--card);
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.dropdown:hover .dropdown-menu,
+.dropdown.open .dropdown-menu { display: flex; }
+.dropdown-menu a { padding: 10px 14px; color: var(--text); }
+.dropdown-menu a:hover { background: var(--accent); color: #fff; }
+
+
+/* Header */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  background: rgba(0,0,0,0.85);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo img { height: 60px; }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active { background: #ff6600; color: #fff; }
+
+.dropdown { position: relative; }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0;
+  background: rgba(0,0,0,0.85);
+  padding: 10px 0;
+  border-radius: 8px;
+  min-width: 220px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.dropdown-menu a { display: block; padding: 10px 20px; color: #fff; transition: background 0.3s ease; }
+.dropdown-menu a:hover { background: #ff6600; }
+.dropdown:hover .dropdown-menu { display: block; }
+
+/* Management Section */
+.management-section {
+  padding: 80px 10%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.management-section h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ff6600;
+  margin-bottom: 50px;
+  animation: softGlow 2.5s infinite alternate;
+}
+
+/* Pyramid layout using flex */
+.management-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Top row - 3 cards */
+.top-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Bottom row - 2 cards centered */
+.bottom-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Cards */
+.member-card {
+  background: #fff;
+  color: #111;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  position: relative;
+  overflow: hidden;
+  width: 220px;
+}
+
+.member-card img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #ff6600;
+  animation: bounce 3s infinite;
+}
+
+.member-card h3 { font-size: 1.3rem; margin-bottom: 5px; color: #111; }
+.member-card p { font-size: 1rem; color: #333; }
+
+.member-card:hover {
+  transform: translateY(-15px) scale(1.05) rotate(-1deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+/* Animations */
+@keyframes softGlow {
+  0% { text-shadow: 0 0 8px #ff6600; }
+  100% { text-shadow: 0 0 18px #ff9900; }
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+.fade-in:nth-child(1) { animation-delay: 0.3s; }
+.fade-in:nth-child(2) { animation-delay: 0.6s; }
+.fade-in:nth-child(3) { animation-delay: 0.9s; }
+.fade-in:nth-child(4) { animation-delay: 1.2s; }
+.fade-in:nth-child(5) { animation-delay: 1.5s; }
+
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-row, .bottom-row { flex-direction: column; gap: 20px; }
+}

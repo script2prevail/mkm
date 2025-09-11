@@ -3,18 +3,54 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> MKM Kho Kho — Gallery</title>
+  <title>MKM Kho Kho — Gallery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="gallery.css" />
+  <link rel="stylesheet" href="gallery.css" />
 </head>
 <body>
-  <button class="theme-toggle" id="themeToggle">Switch to Light Mode</button>
+  <!-- 🔹 Site Header (same as Home page) -->
+  <!-- Header with semi-opaque black background -->
+  <header class="header-overlay">
+    <div class="logo">
+      <img src="images/.png" alt="Logo">
+    </div>
+
+    <nav>
+      <a href="home.html" class="active">Home</a>
+      <a href="gallery.html">Gallery</a>
+
+      <!-- Management Dropdown -->
+      <div class="dropdown">
+        <a href="#" id="managementBtn">Management ▾</a>
+        <div class="dropdown-menu">
+          <a href="executive_body.html">Executive Body</a>
+          <a href="organizing_committee.html">Organizing Committee</a>
+        </div>
+      </div>
+
+      <!-- MKM Dropdown -->
+      <div class="dropdown">
+        <a href="#" id="mkmBtn">MKM ▾</a>
+        <div class="dropdown-menu">
+          <a href="MKM_khokho_rules.html">MKM Kho Kho Rules</a>
+          <a href="mkm_khokho_road_map.html">MKM Kho Kho Roadmap</a>
+        </div>
+      </div>
+
+      <a href="#teamsSection" id="teamsBtn">Teams</a>
+      <a href="events.html">Events</a>
+      <a href="#contactSection" id="contactBtn">Contact Us</a>
+    </nav>
+  </header>
+  <!-- 🔹 End Header -->
+
   <header class="hero">
     <h1 class="title">Kho Kho Gallery</h1>
     <p class="subtitle">Celebrate the spirit and action of Kho Kho</p>
   </header>
+
   <div class="controls">
     <button class="chip active" data-filter="all">All</button>
     <button class="chip" data-filter="attack">Attack</button>
@@ -22,51 +58,46 @@
     <button class="chip" data-filter="team">Team</button>
     <button class="chip" data-filter="training">Training</button>
   </div>
+
   <section class="grid" id="grid">
     <div class="card" data-tags="attack">
-      <img src="https://images.unsplash.com/photo-1602804362317-4490f58b5bfc?q=80&w=600" alt="Kho Kho Attack" />
+      <img src="images/attack1.JPG" alt="Kho Kho Attack" />
+      <img src="images/attack2.JPG" alt="Kho Kho Attack" />
+      <img src="images/attack3.JPG" alt="Kho Kho Attack" />
+      <img src="images/attack4.JPG" alt="Kho Kho Attack" />
       <span class="label">Attack</span>
     </div>
     <div class="card" data-tags="defense">
-      <img src="https://images.unsplash.com/photo-1531327431342-69f3d2e6b8a0?q=80&w=600" alt="Kho Kho Defense" />
+      <img src="images/defence.JPG" alt="Kho Kho Defense" />
+      <img src="images/defence2.JPG" alt="Kho Kho Defense" />
+      <img src="images/defence3.JPG" alt="Kho Kho Defense" />
       <span class="label">Defense</span>
     </div>
     <div class="card" data-tags="team">
-      <img src="https://images.unsplash.com/photo-1518599807935-37015b9cefcb?q=80&w=600" alt="Kho Kho Team" />
+      <img src="images/team1.JPG" alt="Kho Kho Team" />
+      <img src="images/team2.JPG" alt="Kho Kho Team" />
+      <img src="images/team3.JPG" alt="Kho Kho Team" />
+      <img src="images/team4.JPG" alt="Kho Kho Team" />
+      <img src="images/team5.JPG" alt="Kho Kho Team" />
       <span class="label">Team</span>
     </div>
     <div class="card" data-tags="training">
-      <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=600" alt="Kho Kho Training" />
+      <img src="images/traning1.JPG" alt="Kho Kho Training" />
       <span class="label">Training</span>
     </div>
   </section>
+
   <div class="video-strip">
     <video autoplay muted loop>
-      <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+      <source src="images/homebgvd.mp4" type="video/mp4">
     </video>
     <div class="running-text">Kho Kho in Action!</div>
   </div>
-  <footer> MKM Kho Kho Gallery </footer>
-  <script>
-    // Dark / Light mode 
-    const toggleBtn = document.getElementById('themeToggle');
-    const htmlEl = document.documentElement;
-    if(localStorage.getItem('theme') === 'light'){
-      htmlEl.classList.add('light');
-      toggleBtn.textContent = 'Switch to Dark Mode';
-    }
-    toggleBtn.addEventListener('click', ()=>{
-      htmlEl.classList.toggle('light');
-      if(htmlEl.classList.contains('light')){
-        localStorage.setItem('theme','light');
-        toggleBtn.textContent = 'Switch to Dark Mode';
-      } else {
-        localStorage.setItem('theme','dark');
-        toggleBtn.textContent = 'Switch to Light Mode';
-      }
-    });
 
-    // Filter buttons
+  <footer>MKM Kho Kho Gallery</footer>
+
+  <script>
+    // 🔹 Filter buttons
     const chips = document.querySelectorAll('.chip');
     const cards = document.querySelectorAll('.card');
     chips.forEach(chip =>{

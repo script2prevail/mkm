@@ -68,6 +68,73 @@ header p {
     color: var(--muted);
 }
 
+/* Header with less transparent black */
+.header-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px;
+  background: rgba(0,0,0,0.85); /* less transparent (more opaque) */
+  position: relative;
+  z-index: 10;
+}
+
+/* Logo */
+.logo { display:flex; align-items:center; }
+.logo img { height: 50px; }
+
+/* NAV */
+nav {
+  display:flex;
+  gap: 18px;
+  align-items:center;
+}
+
+/* Apply same hover to all header buttons (links & dropdown triggers) */
+nav a,
+nav a:visited,
+nav a:focus,
+nav a:active,
+nav .dropdown > a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: color 180ms ease, transform 180ms ease, background 180ms ease;
+  display: inline-block;
+}
+
+/* Unified hover/active effect for all header items */
+nav a:hover,
+nav .dropdown > a:hover,
+nav a:focus,
+nav .dropdown > a:focus {
+  color: var(--accent);            /* orange color on hover */
+  transform: translateY(-2px);     /* subtle lift */
+  background: rgba(255,102,0,0.06);/* light hover background (very subtle) */
+}
+
+/* Remove orange bottom underline effect entirely (no ::after used) */
+
+/* Dropdown menu */
+.dropdown { position: relative; }
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: var(--card);
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.dropdown:hover .dropdown-menu,
+.dropdown.open .dropdown-menu { display: flex; }
+.dropdown-menu a { padding: 10px 14px; color: var(--text); }
+.dropdown-menu a:hover { background: var(--accent); color: #fff; }
+
 .container {
     max-width: 1300px;
     margin: 28px auto 120px;

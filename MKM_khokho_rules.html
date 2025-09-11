@@ -8,8 +8,41 @@
 <link rel="stylesheet" href="MKM_khokho_rules.css"/>
 </head>
 <body>
-<button class="theme-toggle" id="themeToggle">Switch to Light Mode</button>
-<header>Kho Kho Rules</header>
+<!-- Header with semi-opaque black background -->
+  <header class="header-overlay">
+    <div class="logo">
+      <img src="images/.png" alt="Logo">
+    </div>
+    <nav>
+      <a href="home.html" class="active">Home</a>
+      <a href="gallery.html">Gallery</a>
+
+      <!-- Management Dropdown -->
+      <div class="dropdown">
+        <a href="#" id="managementBtn">Management ▾</a>
+        <div class="dropdown-menu">
+          <a href="executive_body.html">Executive Body</a>
+          <a href="organizing_committee.html">Organizing Committee</a>
+        </div>
+      </div>
+
+      <!-- MKM Dropdown -->
+      <div class="dropdown">
+        <a href="#" id="mkmBtn">MKM ▾</a>
+        <div class="dropdown-menu">
+          <a href="MKM_khokho_rules.html">MKM Kho Kho Rules</a>
+          <a href="mkm_khokho_road_map.html">MKM Kho Kho Roadmap</a>
+        </div>
+      </div>
+
+      <a href="#teamsSection" id="teamsBtn">Teams</a>
+      <a href="events.html">Events</a>
+      <a href="#contactSection" id="contactBtn">Contact Us</a>
+    </nav>
+  </header>
+<header>
+  <h1>Kho Kho Rules</h1>
+</header>
 <div class="rules-container">
   <div class="rule-card">
     <div class="emoji">🏃‍♂️</div>

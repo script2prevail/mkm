@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>MKM Kho Kho Premier League</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="home.css" />
 </head>
 <body>
+
 <div class="hero">
-  <header>
+  <!-- Background Video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="images/homebgvd.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Header with semi-opaque black background -->
+  <header class="header-overlay">
     <div class="logo">
-      <img src="images/mkmlogo.png" alt="Logo">
-      MKM League
+      <img src="images/.png" alt="Logo">
     </div>
     <nav>
       <a href="home.html" class="active">Home</a>
       <a href="gallery.html">Gallery</a>
-      <!-- ✅ Management Dropdown -->
+
+      <!-- Management Dropdown -->
       <div class="dropdown">
         <a href="#" id="managementBtn">Management ▾</a>
         <div class="dropdown-menu">
-          <a href="founder_committee.html">Core Management</a>
-          <a href="executive_committee.html">MKM Management</a>
+          <a href="executive_body.html">Executive Body</a>
+          <a href="organizing_committee.html">Organizing Committee</a>
         </div>
       </div>
-      <!-- ✅ MKM Dropdown -->
+
+      <!-- MKM Dropdown -->
       <div class="dropdown">
         <a href="#" id="mkmBtn">MKM ▾</a>
         <div class="dropdown-menu">
@@ -35,119 +44,97 @@
       </div>
 
       <a href="#teamsSection" id="teamsBtn">Teams</a>
-      <a id="contactBtn">Contact Us</a>
+      <a href="events.html">Events</a>
+      <a href="#contactSection" id="contactBtn">Contact Us</a>
     </nav>
   </header>
 
   <div class="hero-content">
-    <h1>MKM Kho Kho Premier League</h1>
     <p>Experience the thrill of India's fastest traditional sport!</p>
-    <div class="btns">
-      <a href="#">Join Now</a>
-      <a href="#">Learn More</a>
-    </div>
   </div>
 </div>
 
-<!-- ✅ Teams Section -->
-<!-- ✅ Teams Section -->
+<!-- Teams Section (unchanged) -->
 <section class="teams-section" id="teamsSection">
   <h2>Meet the Teams</h2>
   <div class="teams-container">
-
-    <div class="team-card gradient-yellow-blue">
-      <img src="images/chennai.png" alt="Chennai Quick Guns">
-      <div class="team-info">
-        <h3>Chennai</h3>
-        <p>Quick Guns</p>
-      </div>
+    <div class="team-card">
+      <img src="images/teamlogo1.png" alt="Team 1">
+      <h3>KING'S CHHATRAPATI</h3>
+      <p>OWNER - Mr. Sachin Patil<br>(Sincere Tennis Academy)</p>
     </div>
-
-    <div class="team-card gradient-red-purple">
-      <img src="images/gujarat.png" alt="Gujarat Giants">
-      <div class="team-info">
-        <h3>Gujarat</h3>
-        <p>Giants</p>
-      </div>
+    <div class="team-card">
+      <img src="images/teamlogo2.png" alt="Team 2">
+      <h3>MKM DEFENDER</h3>
+      <p>OWNER - Adv. Sumant Chitaley<br>(All India Reporter)</p>
     </div>
-
-    <div class="team-card gradient-blue-darkblue">
-      <img src="images/mumbai.png" alt="Mumbai Khiladis">
-      <div class="team-info">
-        <h3>Mumbai</h3>
-        <p>Khiladis</p>
-      </div>
+    <div class="team-card">
+      <img src="images/teamlogo3.png" alt="Team 3">
+      <h3>RAJMUDRA WORRIER</h3>
+      <p>OWNER - Mr. Laxmikant Kirpane<br>(Rajmudra Krida & Sanskrutik Pratishthan)</p>
     </div>
-
-    <div class="team-card gradient-brown-red">
-      <img src="images/odisha.png" alt="Odisha Juggernauts">
-      <div class="team-info">
-        <h3>Odisha</h3>
-        <p>Juggernauts</p>
-      </div>
+    <div class="team-card">
+      <img src="images/teamlogo4.png" alt="Team 4">
+      <h3>ORANGE CITY LIONS</h3>
+      <p>OWNER - Mr. Pintu Mehadia & Mr. Raju Nanwatkar<br>(Lions Club Nagpur)</p>
     </div>
-
-    <div class="team-card gradient-pink-purple">
-      <img src="images/rajasthan.png" alt="Rajasthan Warriors">
-      <div class="team-info">
-        <h3>Rajasthan</h3>
-        <p>Warriors</p>
-      </div>
+    <div class="team-card">
+      <img src="images/teamlogo5.png" alt="Team 5">
+      <h3>SPORTS KARMA</h3>
+      <p>OWNER - Mr. Sandip Joshi<br>(MLC Maharashtra State)</p>
     </div>
-
-    <div class="team-card gradient-orange-blue">
-      <img src="images/telugu.png" alt="Telugu Yoddhas">
-      <div class="team-info">
-        <h3>Telugu</h3>
-        <p>Yoddhas</p>
-      </div>
+    <div class="team-card">
+      <img src="images/teamlogo6.png" alt="Team 6">
+      <h3>VDL FLYER</h3>
+      <p>OWNER - Mr. Rishi Loya C.A. & Mr. Rohan Loya C.A.<br>(VOL Securities pvt. Ltd)</p>
     </div>
-
   </div>
 </section>
-<!-- Contact Section -->
-<div class="contact-section" id="contactSection">
-  <h2>Contact Us</h2>
-  <p>Email: info@mkmkho.com | Phone: +91 98765 43210</p>
-  <p>Address: MKM Sports Complex, Nagpur, India</p>
-</div>
+
+<!-- Contact Section: map (left) + contact info (right) -->
+<section class="contact-section" id="contactSection">
+  <h2 class="contact-heading">Contact Us</h2> 
+  <div class="contact-container">
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.786143657412!2d79.0881549153329!3d21.145800985927095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c07e6e8a93b3%3A0x8c5a3d2b7c7f5b71!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1694182477342!5m2!1sen!2sin"
+        frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+
+    <div class="contact-info">
+      <h2>Contact Us</h2>
+      <p><strong>Email:</strong> info@mkmkho.com</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+      <p><strong>Address:</strong> MKM Sports Complex, Nagpur, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer (kept minimal) -->
+<footer class="site-footer">
+  <p>© 2025 MKM Kho Kho Premier League | All Rights Reserved</p>
+</footer>
 
 <script>
-// ✅ Dropdown toggle for MKM
+// Dropdown toggles (unchanged behavior)
 const mkmBtn = document.getElementById('mkmBtn');
-const mkmDropdown = mkmBtn.parentElement;
-mkmBtn.addEventListener('click', (e)=>{
-  e.preventDefault();
-  mkmDropdown.classList.toggle('open');
-});
+const mkmDropdown = mkmBtn && mkmBtn.parentElement;
+if (mkmBtn) mkmBtn.addEventListener('click', (e)=>{ e.preventDefault(); mkmDropdown.classList.toggle('open'); });
 
-// ✅ Dropdown toggle for Management
 const managementBtn = document.getElementById('managementBtn');
-const managementDropdown = managementBtn.parentElement;
-managementBtn.addEventListener('click', (e)=>{
-  e.preventDefault();
-  managementDropdown.classList.toggle('open');
-});
+const managementDropdown = managementBtn && managementBtn.parentElement;
+if (managementBtn) managementBtn.addEventListener('click', (e)=>{ e.preventDefault(); managementDropdown.classList.toggle('open'); });
 
-// Contact Us toggle
+// Smooth scroll for Teams and Contact
+const teamsBtn = document.getElementById('teamsBtn');
+if (teamsBtn) teamsBtn.addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('teamsSection').scrollIntoView({behavior:'smooth'}); });
+
 const contactBtn = document.getElementById('contactBtn');
-const contactSection = document.getElementById('contactSection');
-contactBtn.addEventListener('click', (e)=>{
-  e.preventDefault();
-  contactSection.classList.toggle('show');
-});
+if (contactBtn) contactBtn.addEventListener('click', (e)=>{ e.preventDefault(); document.getElementById('contactSection').scrollIntoView({behavior:'smooth'}); });
 
-// Smooth scroll for Teams
-document.getElementById("teamsBtn").addEventListener("click", function(e){
-  e.preventDefault();
-  document.getElementById("teamsSection").scrollIntoView({ behavior: "smooth" });
-});
-
-// Close dropdowns if clicked outside
+// Close dropdowns on outside click
 document.addEventListener('click', (e) => {
-  if (!e.target.closest('.dropdown')) {
-    document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
-  }
+  if (!e.target.closest('.dropdown')) document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
 });
 </script>
 </body>
