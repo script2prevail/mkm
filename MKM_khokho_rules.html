@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kho Kho Rules</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="MKM_khokho_rules.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kho Kho Rules</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="MKM_khokho_rules.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<!-- Header with semi-opaque black background -->
+  <!-- Header -->
   <header class="header-overlay">
     <div class="logo">
-      <img src="images/.png" alt="Logo">
+      <img src="images/logo.jpg" alt="Logo">
     </div>
     <nav>
-      <a href="home.html" class="active">Home</a>
+      <a href="home.html">Home</a>
       <a href="gallery.html">Gallery</a>
 
       <!-- Management Dropdown -->
@@ -26,78 +27,119 @@
         </div>
       </div>
 
-      <!-- MKM Dropdown -->
+      <!-- MKM Dropdown (selected) -->
       <div class="dropdown">
-        <a href="#" id="mkmBtn">MKM ▾</a>
+        <a href="#" id="mkmBtn" class="active">MKM ▾</a>
         <div class="dropdown-menu">
-          <a href="MKM_khokho_rules.html">MKM Kho Kho Rules</a>
+          <a href="MKM_khokho_rules.html" class="active">MKM Kho Kho Rules</a>
           <a href="mkm_khokho_road_map.html">MKM Kho Kho Roadmap</a>
         </div>
       </div>
 
-      <a href="#teamsSection" id="teamsBtn">Teams</a>
+      <a href="events.html" id="teamsBtn">Teams</a>
       <a href="events.html">Events</a>
-      <a href="#contactSection" id="contactBtn">Contact Us</a>
+      <a href="#" id="contactBtn">Contact Us</a>
     </nav>
   </header>
-<header>
-  <h1>Kho Kho Rules</h1>
-</header>
-<div class="rules-container">
-  <div class="rule-card">
-    <div class="emoji">🏃‍♂️</div>
-    <h3>Team Composition</h3>
-    <p>Each team consists of 12 players, with 9 taking the field and 3 substitutes.</p>
+
+  <!-- Page Title -->
+  <header>
+    <h1>Kho Kho Rules</h1>
+  </header>
+
+  <!-- Rules -->
+  <div class="rules-container">
+    <div class="rule-card">
+      <div class="emoji">🏃‍♂️</div>
+      <h3>Team Composition</h3>
+      <p>Each team consists of 12 players, with 9 taking the field and 3 substitutes.</p>
+    </div>
+    <div class="rule-card">
+      <div class="emoji">⏱️</div>
+      <h3>Time Limit</h3>
+      <p>The match is played in two innings of 9 minutes each with a break in between.</p>
+    </div>
+    <div class="rule-card">
+      <div class="emoji">➡️</div>
+      <h3>Direction Change</h3>
+      <p>Chasers can only change direction by touching a sitting teammate and shouting "Kho".</p>
+    </div>
+    <div class="rule-card">
+      <div class="emoji">📏</div>
+      <h3>Field Dimensions</h3>
+      <p>The field measures 27m x 16m, divided into equal halves with a central lane.</p>
+    </div>
+    <div class="rule-card">
+      <div class="emoji">🚫</div>
+      <h3>Foul Play</h3>
+      <p>Pushing, holding, or blocking runners is strictly prohibited and leads to penalties.</p>
+    </div>
+    <div class="rule-card">
+      <div class="emoji">🏅</div>
+      <h3>Winning Criteria</h3>
+      <p>The team that tags the most opponents in the least time wins the match.</p>
+    </div>
   </div>
-  <div class="rule-card">
-    <div class="emoji">⏱️</div>
-    <h3>Time Limit</h3>
-    <p>The match is played in two innings of 9 minutes each with a break in between.</p>
+
+  <!-- Footer Animation -->
+  <div class="footer-anim">
+    <div class="runner">🏃‍♂️</div>
+    <div class="runner">🏃‍♀️</div>
+    <div class="runner">🏃‍♂️</div>
   </div>
-  <div class="rule-card">
-    <div class="emoji">➡️</div>
-    <h3>Direction Change</h3>
-    <p>Chasers can only change direction by touching a sitting teammate and shouting "Kho".</p>
-  </div>
-  <div class="rule-card">
-    <div class="emoji">📏</div>
-    <h3>Field Dimensions</h3>
-    <p>The field measures 27m x 16m, divided into equal halves with a central lane.</p>
-  </div>
-  <div class="rule-card">
-    <div class="emoji">🚫</div>
-    <h3>Foul Play</h3>
-    <p>Pushing, holding, or blocking runners is strictly prohibited and leads to penalties.</p>
-  </div>
-  <div class="rule-card">
-    <div class="emoji">🏅</div>
-    <h3>Winning Criteria</h3>
-    <p>The team that tags the most opponents in the least time wins the match.</p>
+  <footer>© 2025 MKM Kho Kho Premier League | All Rights Reserved</footer>
+<!-- Contact Modal -->
+<div class="modal" id="contactModal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <h2>Contact Us</h2>
+    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> mkm@gmail.com</p>
+    <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +91 9823659655, +91 9518986917, +91 9225220555</p>
+    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 43JJ+3P9, Congress Nagar, Dhantoli, Nagpur, Maharashtra 440012</p>
   </div>
 </div>
-<div class="footer-anim">
-  <div class="runner">🏃‍♂️</div>
-  <div class="runner">🏃‍♀️</div>
-  <div class="runner">🏃‍♂️</div>
-</div>
-<footer>Kho Kho Rules © 2025</footer>
-<script>
-const toggleBtn = document.getElementById('themeToggle');
-const htmlEl = document.documentElement;
-if(localStorage.getItem('theme') === 'light'){
-  htmlEl.classList.add('light');
-  toggleBtn.textContent = 'Switch to Dark Mode';
-}
-toggleBtn.addEventListener('click', ()=>{
-  htmlEl.classList.toggle('light');
-  if(htmlEl.classList.contains('light')){
-    localStorage.setItem('theme','light');
-    toggleBtn.textContent = 'Switch to Dark Mode';
-  } else {
-    localStorage.setItem('theme','dark');
-    toggleBtn.textContent = 'Switch to Light Mode';
+
+
+  <!-- Script -->
+  <script>
+    // Dropdown toggle
+    document.querySelectorAll('.dropdown > a').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const parent = btn.parentElement;
+        parent.classList.toggle('open');
+        document.querySelectorAll('.dropdown').forEach(d=>{
+          if(d !== parent){ d.classList.remove('open'); }
+        });
+      });
+    });
+    document.addEventListener('click', (e)=>{
+      if(!e.target.closest('.dropdown')){
+        document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+      }
+    });
+// Open modal on Contact Us click
+const contactBtn = document.getElementById('contactBtn');
+const modal = document.getElementById('contactModal');
+const closeBtn = document.getElementById('closeModal');
+
+contactBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  modal.style.display = 'flex';
+});
+
+// Close modal on close button
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Close modal if clicking outside modal-content
+window.addEventListener('click', (e) => {
+  if(e.target === modal) {
+    modal.style.display = 'none';
   }
 });
-</script>
+
+  </script>
 </body>
 </html>

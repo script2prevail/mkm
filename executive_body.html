@@ -8,38 +8,39 @@
   <link rel="stylesheet" href="executive_body.css">
 </head>
 <body>
-<!-- Header with semi-opaque black background -->
+  <!-- 🔹 Same Header as Gallery -->
   <header class="header-overlay">
     <div class="logo">
-      <img src="images/.png" alt="Logo">
+      <img src="images/logo.jpg" alt="Logo">
     </div>
-    <nav>
-      <a href="home.html" class="active">Home</a>
-      <a href="gallery.html">Gallery</a>
+<nav>
+  <a href="home.html">Home</a>
+  <a href="gallery.html">Gallery</a>
 
-      <!-- Management Dropdown -->
-      <div class="dropdown">
-        <a href="#" id="managementBtn">Management ▾</a>
-        <div class="dropdown-menu">
-          <a href="executive_body.html">Executive Body</a>
-          <a href="organizing_committee.html">Organizing Committee</a>
-        </div>
-      </div>
+  <!-- Management Dropdown -->
+  <div class="dropdown">
+    <a href="#" id="managementBtn" class="active">Management ▾</a> <!-- ✅ Active here -->
+    <div class="dropdown-menu">
+      <a href="executive_body.html">Executive Body</a>
+      <a href="organizing_committee.html">Organizing Committee</a>
+    </div>
+  </div>
 
-      <!-- MKM Dropdown -->
-      <div class="dropdown">
-        <a href="#" id="mkmBtn">MKM ▾</a>
-        <div class="dropdown-menu">
-          <a href="MKM_khokho_rules.html">MKM Kho Kho Rules</a>
-          <a href="mkm_khokho_road_map.html">MKM Kho Kho Roadmap</a>
-        </div>
-      </div>
+  <!-- MKM Dropdown -->
+  <div class="dropdown">
+    <a href="#" id="mkmBtn">MKM ▾</a>
+    <div class="dropdown-menu">
+      <a href="MKM_khokho_rules.html">MKM Kho Kho Rules</a>
+      <a href="mkm_khokho_road_map.html">MKM Kho Kho Roadmap</a>
+    </div>
+  </div>
 
-      <a href="#teamsSection" id="teamsBtn">Teams</a>
-      <a href="events.html">Events</a>
-      <a href="#contactSection" id="contactBtn">Contact Us</a>
-    </nav>
+  <a href="events.html" id="teamsBtn">Teams</a>
+  <a href="events.html">Events</a>
+  <a href="#contactSection" id="contactBtn">Contact Us</a>
+</nav>
   </header>
+  <!-- 🔹 End Header -->
 
   <!-- Hero -->
   <section class="management-hero">
@@ -84,6 +85,57 @@
   <footer>
     <p>© 2025 MKM Kho Kho Premier League | All Rights Reserved</p>
   </footer>
+<!-- Contact Popup -->
+<div id="contactPopup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <h2>Contact Us</h2>
+    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> mkm@gmail.com</p>
+    <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +91 9823659655, +91 9518986917, +91 9225220555</p>
+    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 43JJ+3P9, Congress Nagar, Dhantoli, Nagpur, Maharashtra 440012</p>
+  </div>
+</div>
 
+  <!-- Dropdown toggle script -->
+  <script>
+    // Dropdown toggle on click
+    document.querySelectorAll('.dropdown > a').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const parent = btn.parentElement;
+        parent.classList.toggle('open');
+
+        // Close others
+        document.querySelectorAll('.dropdown').forEach(d=>{
+          if(d !== parent){ d.classList.remove('open'); }
+        });
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e)=>{
+      if(!e.target.closest('.dropdown')){
+        document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+      }
+    });
+     // Open popup
+  document.getElementById("contactBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    document.getElementById("contactPopup").style.display = "flex";
+  });
+
+  // Close popup with close button
+  document.querySelector(".close-btn").addEventListener("click", function(e) {
+    e.stopPropagation(); // ✅ stop event bubbling
+    document.getElementById("contactPopup").style.display = "none";
+  });
+
+  // Close popup when clicking outside
+  window.addEventListener("click", function(e) {
+    if (e.target === document.getElementById("contactPopup")) {
+      document.getElementById("contactPopup").style.display = "none";
+    }
+  });
+  </script>
 </body>
 </html>

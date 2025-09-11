@@ -1,3 +1,12 @@
+:root {
+  --bg: #f9faff;
+  --text: #e9ecf8;
+  --muted: #a9b0d2;
+  --accent: #ff9800;   /* Orange */
+  --accent-2: #2196f3; /* Blue */
+  --card: #1e2338;
+}
+
 /* General */
 * {
   margin: 0;
@@ -6,17 +15,18 @@
 }
 body {
   font-family: 'Poppins', sans-serif;
-  background: #f9faff;
+  background: var(--bg);
   color: #333;
   line-height: 1.6;
 }
-/* Header with less transparent black */
+
+/* 🔹 Same Header as Gallery */
 .header-overlay {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 48px;
-  background: rgba(0,0,0,0.85); /* less transparent (more opaque) */
+  background: rgba(0,0,0,0.85); /* semi-opaque black */
   position: relative;
   z-index: 10;
 }
@@ -47,19 +57,22 @@ nav .dropdown > a {
   display: inline-block;
 }
 
-/* Unified hover/active effect for all header items */
+/* Unified hover/active effect */
 nav a:hover,
 nav .dropdown > a:hover,
 nav a:focus,
 nav .dropdown > a:focus {
-  color: var(--accent);            /* orange color on hover */
-  transform: translateY(-2px);     /* subtle lift */
-  background: rgba(255,102,0,0.06);/* light hover background (very subtle) */
+  color: var(--accent);
+  transform: translateY(-2px);
+  background: rgba(255,102,0,0.06);
+}
+nav a.active,
+nav .dropdown > a.active {
+  background: #ff6600;
+  color: #fff;
 }
 
-/* Remove orange bottom underline effect entirely (no ::after used) */
 
-/* Dropdown menu */
 .dropdown { position: relative; }
 .dropdown-menu {
   position: absolute;
@@ -72,72 +85,9 @@ nav .dropdown > a:focus {
   min-width: 180px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
-.dropdown:hover .dropdown-menu,
 .dropdown.open .dropdown-menu { display: flex; }
 .dropdown-menu a { padding: 10px 14px; color: var(--text); }
 .dropdown-menu a:hover { background: var(--accent); color: #fff; }
-
-
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  background: linear-gradient(90deg, #8e24aa, #3949ab);
-  color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.logo {
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-  font-size: 20px;
-}
-.logo img {
-  width: 40px;
-  margin-right: 10px;
-}
-nav a {
-  color: #fff;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-nav a:hover,
-nav a.active {
-  color: #ffeb3b;
-}
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background: #fff;
-  color: #333;
-  min-width: 200px;
-  top: 100%;
-  left: 0;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-.dropdown-menu a {
-  display: block;
-  padding: 12px;
-  color: #333;
-}
-.dropdown-menu a:hover {
-  background: #f1f1f1;
-}
 
 /* Hero Section */
 .management-hero {
@@ -212,6 +162,49 @@ nav a.active {
   color: #666;
 }
 
+/* Popup Overlay */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup Box */
+.popup-content {
+  background: #fff;
+  color: #111;
+  padding: 25px 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  animation: scaleUp 0.3s ease;
+   position: relative; /* ✅ Needed for close button */
+}
+
+.popup-content h2 {
+  margin-bottom: 15px;
+  color: #ff6600;
+  text-align: center;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 20px; right: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+.close-btn:hover { color: #ff6600; }
 /* Footer */
 footer {
   text-align: center;

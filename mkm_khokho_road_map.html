@@ -5,15 +5,19 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Kho Kho — Participation Roadmap</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="MKM_khokho_road_map.css" />
+<link rel="stylesheet" href="MKM_khokho_road_map.css" />
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<!-- Header same as rules page -->
 <header class="header-overlay">
     <div class="logo">
-      <img src="images/.png" alt="Logo">
+      <img src="images/logo.jpg" alt="Logo">
     </div>
     <nav>
-      <a href="home.html" class="active">Home</a>
+      <a href="home.html">Home</a>
       <a href="gallery.html">Gallery</a>
 
       <!-- Management Dropdown -->
@@ -27,25 +31,26 @@
 
       <!-- MKM Dropdown -->
       <div class="dropdown">
-        <a href="#" id="mkmBtn">MKM ▾</a>
+        <a href="#" id="mkmBtn" class="active">MKM ▾</a>
         <div class="dropdown-menu">
           <a href="MKM_khokho_rules.html">MKM Kho Kho Rules</a>
-          <a href="mkm_khokho_road_map.html">MKM Kho Kho Roadmap</a>
+          <a href="MKM_khokho_road_map.html">MKM Kho Kho Roadmap</a>
         </div>
       </div>
 
-      <a href="#teamsSection" id="teamsBtn">Teams</a>
+      <a href="events.html" id="teamsBtn">Teams</a>
       <a href="events.html">Events</a>
-      <a href="#contactSection" id="contactBtn">Contact Us</a>
+      <a href="#" id="contactBtn">Contact Us</a>
     </nav>
-  </header>
+</header>
+
 <header>
   <h1> MKM Kho Kho — Participation Roadmap</h1>
   <p>Follow this creative road to register, prepare and excel in the Kho Kho match.</p>
 </header>
 
 <div class="container">
-  <!-- Left Roadmap -->
+  <!-- Left Roadmap (UNCHANGED) -->
   <div class="card" style="flex:2;">
     <p style="margin:0;color:var(--muted)">Click each pin for more info. Watch the animated marker travel the route.</p>
     <div class="road-wrap">
@@ -86,7 +91,7 @@
     </div>
   </div>
 
-  <!-- Right Details -->
+  <!-- Right Details (UNCHANGED) -->
   <div class="card details" style="flex:1;">
     <h2>Roadmap Details</h2>
     <ul>
@@ -99,7 +104,18 @@
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Contact Modal (Updated white-orange style) -->
+<div class="modal" id="contactModal">
+  <div class="modal-content" style="background:#fff; color:#000;">
+    <span class="close" id="closeContact" style="position:absolute; top:10px; right:14px; font-size:22px; cursor:pointer;">&times;</span>
+    <h2 style="color:orange;">Contact Us</h2>
+    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> mkm@gmail.com</p>
+    <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +91 9823659655, +91 9518986917, +91 9225220555</p>
+    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 43JJ+3P9, Congress Nagar, Dhantoli, Nagpur, Maharashtra 440012</p>
+  </div>
+</div>
+
+<!-- Step Info Modal (UNCHANGED) -->
 <div class="modal" id="infoModal">
   <div class="modal-content">
     <h2 id="modalTitle"></h2>
@@ -107,21 +123,9 @@
     <button class="close-btn" id="closeModal">Close</button>
   </div>
 </div>
-
+<footer>© 2025 MKM Kho Kho Premier League | All Rights Reserved</footer>
 <script>
-  // Theme toggle
-  const themeBtn=document.getElementById('themeToggle');
-  const htmlEl=document.documentElement;
-  const stored=localStorage.getItem('theme');
-  if(stored==='light') htmlEl.classList.add('light'), themeBtn.textContent='Switch to Dark';
-  else themeBtn.textContent='Switch to Light';
-  themeBtn.addEventListener('click',()=>{
-    const isLight=htmlEl.classList.toggle('light');
-    localStorage.setItem('theme',isLight?'light':'dark');
-    themeBtn.textContent=isLight?'Switch to Dark':'Switch to Light';
-  });
-
-  // Modal logic
+  // Step Modal
   const modal=document.getElementById('infoModal');
   const modalTitle=document.getElementById('modalTitle');
   const modalDesc=document.getElementById('modalDesc');
@@ -137,7 +141,34 @@
   closeBtn.addEventListener('click',()=>modal.classList.remove('active'));
   modal.addEventListener('click',e=>{if(e.target===modal) modal.classList.remove('active');});
 
-  // Marker auto-move
+  // Contact Popup
+  const contactModal=document.getElementById('contactModal');
+  const contactBtn=document.getElementById('contactBtn');
+  const closeContact=document.getElementById('closeContact');
+
+  contactBtn.addEventListener('click',()=>contactModal.classList.add('active'));
+  closeContact.addEventListener('click',()=>contactModal.classList.remove('active'));
+  contactModal.addEventListener('click',e=>{if(e.target===contactModal) contactModal.classList.remove('active');});
+
+ // Function to handle dropdown click
+document.querySelectorAll('.dropdown').forEach(drop => {
+    const btn = drop.querySelector('a');          // Dropdown trigger
+    const menu = drop.querySelector('.dropdown-menu'); // Menu
+
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        menu.classList.toggle('open');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', e => {
+        if (!drop.contains(e.target)) {
+            menu.classList.remove('open');
+        }
+    });
+});
+
+  // Marker Auto Move
   const path=document.getElementById('roadPath');
   const marker=document.getElementById('marker');
   const length=path.getTotalLength();
@@ -148,10 +179,12 @@
     const pt=path.getPointAtLength(length*t);
     const left=(pt.x/path.ownerSVGElement.viewBox.baseVal.width)*100;
     const top=(pt.y/path.ownerSVGElement.viewBox.baseVal.height)*100;
-    marker.style.left=left+'%'; marker.style.top=top+'%';
+    marker.style.left=left+'%';
+    marker.style.top=top+'%';
     requestAnimationFrame(animateMarker);
   }
   requestAnimationFrame(animateMarker);
 </script>
+
 </body>
 </html>

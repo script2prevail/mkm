@@ -1,337 +1,344 @@
 :root {
-    --bg: #0f1220;
-    --card: #171a2b;
-    --muted: #9aa3c7;
-    --text: #e9ecf8;
-    --accent: #ff7f00; /* Orange */
-    --accent2: #0077ff; /* Blue */
-    --glass: rgba(255, 255, 255, 0.06);
-}
-
-html.light {
-    --bg: #f6f9ff;
-    --card: #ffffff;
-    --muted: #5b6078;
-    --text: #111827;
-    --accent: #ff7f00; /* Orange */
-    --accent2: #0077ff; /* Blue */
-    --glass: rgba(0, 0, 0, 0.04);
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Poppins, system-ui, Arial;
-    background: var(--bg);
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
-}
-
-.topbar {
-    position: fixed;
-    right: 18px;
-    top: 18px;
-    z-index: 60;
-}
-
+    --bg: #0f1220; 
+    --card: #171a2b; 
+    --muted: #9aa3c7; 
+    --text: #e9ecf8; 
+    --accent: #ff7f00; /* Orange */ 
+    --accent2: #0077ff; /* Blue */ 
+    --glass: rgba(255, 255, 255, 0.06); 
+} 
+html.light 
+{ --bg: #f6f9ff; 
+    --card: #ffffff; 
+    --muted: #5b6078; 
+    --text: #111827; 
+    --accent: #ff7f00; /* Orange */ 
+    --accent2: #0077ff; /* Blue */ 
+    --glass: rgba(0, 0, 0, 0.04); 
+} 
+*
+ { box-sizing: border-box; 
+} 
+body 
+{ 
+    margin: 0; 
+    font-family: Poppins, system-ui, Arial; 
+    background: var(--bg); 
+    color: var(--text); 
+    -webkit-font-smoothing: antialiased; 
+} 
+.topbar 
+{ 
+    position: fixed; 
+    right: 18px; 
+    top: 18px; 
+    z-index: 60; 
+} 
 .toggle {
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    color: #fff;
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-
-header {
-    padding: 84px 20px 18px;
-    text-align: center;
-    position: relative;
-}
-
-header h1 {
-    font-size: clamp(28px, 5vw, 44px);
-    margin: 0;
-    font-weight: 800;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-header p {
-    margin: 8px 0 0;
-    color: var(--muted);
-}
-
-/* Header with less transparent black */
-.header-overlay {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 48px;
-  background: rgba(0,0,0,0.85); /* less transparent (more opaque) */
-  position: relative;
-  z-index: 10;
-}
-
-/* Logo */
-.logo { display:flex; align-items:center; }
-.logo img { height: 50px; }
-
-/* NAV */
-nav {
-  display:flex;
-  gap: 18px;
-  align-items:center;
-}
-
-/* Apply same hover to all header buttons (links & dropdown triggers) */
-nav a,
-nav a:visited,
-nav a:focus,
-nav a:active,
-nav .dropdown > a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 6px 8px;
-  border-radius: 6px;
-  transition: color 180ms ease, transform 180ms ease, background 180ms ease;
-  display: inline-block;
-}
-
-/* Unified hover/active effect for all header items */
-nav a:hover,
-nav .dropdown > a:hover,
-nav a:focus,
-nav .dropdown > a:focus {
-  color: var(--accent);            /* orange color on hover */
-  transform: translateY(-2px);     /* subtle lift */
-  background: rgba(255,102,0,0.06);/* light hover background (very subtle) */
-}
-
-/* Remove orange bottom underline effect entirely (no ::after used) */
-
-/* Dropdown menu */
-.dropdown { position: relative; }
-.dropdown-menu {
-  position: absolute;
-  top: 120%;
-  left: 0;
-  background: var(--card);
-  border-radius: 8px;
-  display: none;
-  flex-direction: column;
-  min-width: 180px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-.dropdown:hover .dropdown-menu,
-.dropdown.open .dropdown-menu { display: flex; }
-.dropdown-menu a { padding: 10px 14px; color: var(--text); }
-.dropdown-menu a:hover { background: var(--accent); color: #fff; }
-
-.container {
-    max-width: 1300px;
-    margin: 28px auto 120px;
-    padding: 0 18px;
-    display: flex;
-    gap: 28px;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 22px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-    flex: 1;
-    min-width: 300px;
-}
-
-/* Roadmap */
-.road-wrap {
-    position: relative;
-    margin-top: 10px;
-    height: 620px;
-    overflow: hidden;
-}
-
-.road-bg {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(800px 300px at 10% 10%, rgba(255, 127, 0, 0.08), transparent 20%), 
-                radial-gradient(600px 260px at 90% 90%, rgba(0, 119, 255, 0.06), transparent 20%);
-    pointer-events: none;
-}
-
-.road-svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.steps {
-    position: absolute;
-    inset: 0;
-}
-
-.step {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 80px;
-    text-align: center;
-}
-
-.pin {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(180deg, var(--accent), var(--accent2));
-    display: grid;
-    place-items: center;
-    color: #fff;
-    font-weight: 800;
-    font-size: 18px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-    cursor: pointer;
-    margin: 0 auto;
-}
-
-.pin.pulse::after {
-    content: "";
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    left: 0;
-    top: 0;
-    box-shadow: 0 0 0 6px rgba(255, 127, 0, 0.12);
-    animation: rad 1.6s infinite;
-}
-
-@keyframes rad {
-    0% {
-        transform: scale(.9);
-        opacity: .9
+     background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #fff; 
+      padding: 10px 14px; 
+      border-radius: 999px; 
+      border: none; 
+      cursor: pointer; 
+      font-weight: 700; 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); 
     }
-
-    100% {
-        transform: scale(1.8);
-        opacity: 0
+     header
+      { padding: 84px 20px 18px; 
+        text-align: center; 
+        position: relative; 
+    } 
+    header h1 
+    { 
+        font-size: clamp(28px, 5vw, 44px); 
+        margin: 0; 
+        font-weight: 800; 
+        background: linear-gradient(90deg, var(--accent), var(--accent2)); 
+        -webkit-background-clip: text; 
+        color: transparent; 
+    } 
+    header p {
+         margin: 8px 0 0; 
+         color: var(--muted); }
+          /* Header with less transparent black */ 
+          .header-overlay { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 18px 48px; 
+            background: rgba(0,0,0,0.85); 
+            /* less transparent (more opaque) */ 
+            position: relative; z-index: 10; } 
+            /* Logo */
+             .logo {
+                 display:flex; 
+                 align-items:center; 
+                } 
+                .logo img {
+                     height: 50px; } 
+/* NAV */ 
+nav { 
+    display:flex;
+     gap: 18px; 
+     align-items:center; 
     }
-}
-
-.label {
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-}
-
-.marker {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--accent2);
-    transform: translate(-50%, -50%);
-    box-shadow: 0 8px 20px rgba(0, 119, 255, 0.24);
-}
-
-/* Right side details */
-.details h2 {
-    margin: 0 0 12px;
+     /* Apply same hover to all header buttons (links & dropdown triggers) */ 
+     nav a, nav a:visited, nav a:focus, nav a:active, nav .dropdown > a 
+     { color: var(--text);
+         text-decoration: none;
+          font-weight: 500; 
+          padding: 6px 8px;
+           border-radius: 6px;
+            transition: color 180ms ease, transform 180ms ease, background 180ms ease;
+             display: inline-block; } 
+/* Unified hover/active effect for all header items */ 
+nav a:hover, nav .dropdown > a:hover, nav a:focus, nav .dropdown > a:focus { 
     color: var(--accent);
+     /* orange color on hover */ 
+     transform: translateY(-2px); /* subtle lift */ 
+     background: rgba(255,102,0,0.06);/* light hover background (very subtle) */ } 
+     /* Remove orange bottom underline effect entirely (no ::after used) */ /* Dropdown menu */ 
+     .dropdown { position: relative; } 
+     .dropdown-menu { 
+        position: absolute; 
+        top: 120%; left: 0; 
+        background: var(--card); 
+        border-radius: 8px; 
+        display: none; 
+        flex-direction: column; 
+        min-width: 180px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25); 
+    } 
+    .dropdown:hover .dropdown-menu, .dropdown.open .dropdown-menu {
+         display: flex; } 
+         .dropdown-menu a 
+         { padding: 10px 14px; color: var(--text); }
+          .dropdown-menu a:hover { background: var(--accent); color: #fff; }
+           .container {
+             max-width: 1300px; 
+             margin: 28px auto 120px;
+              padding: 0 18px; 
+              display: flex; 
+              gap: 28px;
+               flex-wrap: wrap; } 
+               .card { background: var(--card);
+                 border-radius: 16px; 
+                 padding: 22px;
+                  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); 
+                  flex: 1; 
+                  min-width: 300px; }
+                   /* Roadmap */ 
+                   .road-wrap { 
+                    position: relative; 
+                    margin-top: 10px; 
+                    height: 620px; 
+                    overflow: hidden; } 
+                    .road-bg { 
+                        position: absolute; 
+                        inset: 0; 
+                        background: radial-gradient(800px 300px at 10% 10%, rgba(255, 127, 0, 0.08), transparent 20%), radial-gradient(600px 260px at 90% 90%, rgba(0, 119, 255, 0.06), transparent 20%); 
+                        pointer-events: none; } 
+                        .road-svg { 
+                            position: absolute; 
+                            inset: 0; 
+                            width: 100%; 
+                            height: 100%; 
+                        } 
+                        .steps {
+                             position: absolute; 
+                             inset: 0; } 
+                             .step {
+                                 position: absolute; 
+                                 transform: translate(-50%, -50%); 
+                                 width: 80px; text-align: center; } 
+                                 .pin { 
+                                    width: 60px; 
+                                    height: 60px; 
+                                    border-radius: 50%; 
+                                    background: linear-gradient(180deg, var(--accent), var(--accent2)); 
+                                    display: grid; 
+                                    place-items: center; 
+                                    color: #fff; 
+                                    font-weight: 800; 
+                                    font-size: 18px; 
+                                    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); 
+                                    cursor: pointer; 
+                                    margin: 0 auto; 
+                                } 
+                                .pin.pulse::after 
+                                {
+                                     content: ""; 
+                                     position: absolute; 
+                                     width: 60px; 
+                                     height: 60px; 
+                                     border-radius: 50%; 
+                                     left: 0; 
+                                     top: 0; 
+                                     box-shadow: 0 0 0 6px rgba(255, 127, 0, 0.12);
+                                      animation: rad 1.6s infinite; } 
+                                      @keyframes rad { 0% { transform: scale(.9); opacity: .9 } 100% { transform: scale(1.8); opacity: 0 } }
+                                       .label {
+                                         margin-top: 8px;
+                                          font-size: 14px;
+                                           font-weight: 600;
+                                            color: var(--text);
+                                         } 
+                                         .marker {
+                                             position: absolute; 
+                                             width: 20px;
+                                              height: 20px; 
+                                              border-radius: 50%; 
+                                              background: var(--accent2); 
+                                              transform: translate(-50%, -50%); 
+                                              box-shadow: 0 8px 20px rgba(0, 119, 255, 0.24);
+                                             } /* Right side details */
+                                              .details h2 {
+                                                 margin: 0 0 12px; 
+                                                 color: var(--accent); 
+                                                } 
+                                                .details ul { 
+                                                    list-style: none; 
+                                                    padding: 0; 
+                                                    margin: 0; 
+                                                } 
+                                                .details li {
+                                                     margin-bottom: 12px;
+                                                      color: var(--muted);
+                                                     } 
+                                                     .details li strong { 
+                                                        color: var(--text); 
+                                                    } 
+                                                    /* Modal */ 
+                                                    .modal {
+                                                         position: fixed; 
+                                                         inset: 0; 
+                                                         background: rgba(0, 0, 0, 0.6); 
+                                                         display: flex;
+                                                          align-items: center; 
+                                                          justify-content: center;
+                                                           opacity: 0; 
+                                                           pointer-events: none; 
+                                                           transition: opacity .3s ease; 
+                                                           z-index: 200; 
+                                                        } 
+                                                        .modal.active {
+                                                             opacity: 1; 
+                                                             pointer-events: auto; 
+                                                            }
+                                                             .modal-content { 
+                                                                background: var(--card); 
+                                                                padding: 20px;
+                                                                 border-radius: 14px; 
+                                                                 width: 90%; 
+                                                                 max-width: 400px; 
+                                                                 text-align: center; 
+                                                                 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); 
+                                                                 animation: pop .3s ease; 
+                                                                }
+                                                                 @keyframes pop { 0% { transform: scale(.8) } 100% { transform: scale(1) } }
+                                                                  .modal-content h2 { margin: 0 0 10px; color: var(--accent); }
+                                                                   .modal-content p { color: var(--muted); font-size: 14px; }
+                                                                    .close-btn {
+                                                                         margin-top: 14px; 
+                                                                         background: var(--accent); 
+                                                                         border: none; 
+                                                                         color: #fff; 
+                                                                         font-weight: 600; 
+                                                                         padding: 10px 16px; 
+                                                                         border-radius: 8px; cursor: pointer;
+                                                                         } 
+                                     .close-btn:hover { 
+                                        background: var(--accent2); 
+                                    } 
+    /* MKM Button Active State */
+nav a.active {
+    color: var(--accent); /* Orange text */
+    font-weight: 700;
 }
 
-.details ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Management Dropdown Open (on click) */
+.dropdown-menu.open {
+    display: flex !important; /* show dropdown when 'open' class is added */
 }
 
-.details li {
-    margin-bottom: 12px;
-    color: var(--muted);
+/* Contact Modal (white-orange style) */
+#contactModal .modal-content {
+    background: #fff;          /* White background */
+    color: #000;               /* Black text */
+    position: relative;
 }
 
-.details li strong {
-    color: var(--text);
+#contactModal .modal-content h2 {
+    color: orange;             /* Orange heading */
+    margin-bottom: 14px;
 }
 
-/* Modal */
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#contactModal .modal-content p {
+    color: #000;               /* Black text */
+    font-size: 14px;
+    margin: 6px 0;
+    text-align: left;
+}
+
+#contactModal .modal-content i {
+    margin-right: 6px;
+    color: var(--accent);      /* Optional icon color */
+}
+
+#contactModal .close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+}
+
+                                    @media(max-width:900px) 
+                                    { .road-wrap { height: 500px } }
+
+footer {
+  text-align:center;
+  color:var(--muted);
+  padding:20px;
+}
+/* Remove hover effect for dropdowns */
+.dropdown:hover .dropdown-menu {
+    display: none;
+}
+
+/* Show dropdown when .open class is added */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background: var(--card);
+    border-radius: 8px;
+    min-width: 180px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    z-index: 100;
+    transition: opacity 0.3s ease;
     opacity: 0;
     pointer-events: none;
-    transition: opacity .3s ease;
-    z-index: 200;
 }
 
-.modal.active {
+.dropdown-menu.open {
+    display: flex;
     opacity: 1;
     pointer-events: auto;
 }
 
-.modal-content {
-    background: var(--card);
-    padding: 20px;
-    border-radius: 14px;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    animation: pop .3s ease;
+/* Optional: menu links */
+.dropdown-menu a {
+    padding: 10px 14px;
+    color: var(--text);
+    text-decoration: none;
 }
 
-@keyframes pop {
-    0% {
-        transform: scale(.8)
-    }
-
-    100% {
-        transform: scale(1)
-    }
-}
-
-.modal-content h2 {
-    margin: 0 0 10px;
-    color: var(--accent);
-}
-
-.modal-content p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.close-btn {
-    margin-top: 14px;
+.dropdown-menu a:hover {
     background: var(--accent);
-    border: none;
     color: #fff;
-    font-weight: 600;
-    padding: 10px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.close-btn:hover {
-    background: var(--accent2);
-}
-
-@media(max-width:900px) {
-    .road-wrap {
-        height: 500px
-    }
 }
