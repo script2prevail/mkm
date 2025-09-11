@@ -49,7 +49,7 @@ body {
 
 /* Logo */
 .logo { display:flex; align-items:center; }
-.logo img { height: 50px; }
+.logo img { height: 70px; }
 
 /* NAV */
 nav {

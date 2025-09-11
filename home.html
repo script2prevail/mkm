@@ -4,7 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>MKM Kho Kho Premier League</title>
+<link rel="icon" type="image/png" href="images/browsericon.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="home.css" />
 </head>
 <body>
@@ -15,11 +17,12 @@
     <source src="images/homebgvd.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  
 
   <!-- Header with semi-opaque black background -->
   <header class="header-overlay">
     <div class="logo">
-      <img src="images/.png" alt="Logo">
+      <img src="images/logo.jpg" alt="Logo">
     </div>
     <nav>
       <a href="home.html" class="active">Home</a>
@@ -94,21 +97,46 @@
 <!-- Contact Section: map (left) + contact info (right) -->
 <section class="contact-section" id="contactSection">
   <h2 class="contact-heading">Contact Us</h2> 
+
   <div class="contact-container">
-    <div class="map">
+    
+    <!-- Map Section -->
+    <div class="map" style="width: 100%; max-width: 500px; margin-right: 20px;">
+      
+      <!-- Centered link ABOVE the map -->
+      <!-- <div style="text-align: top; margin-bottom: 10px;">
+        <a href="https://www.google.com/maps?q=21.145800985927095,79.0881549153329" 
+           target="_blank" 
+           style="text-decoration:none; color:#007bff; font-weight:bold; font-size: 16px;">
+          📍 View on Google Maps
+        </a>
+      </div> -->
+      
+      <!-- Map -->
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.786143657412!2d79.0881549153329!3d21.145800985927095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c07e6e8a93b3%3A0x8c5a3d2b7c7f5b71!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1694182477342!5m2!1sen!2sin"
-        frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d930.3894032777756!2d79.08116286396344!3d21.13019621755828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c099aefd2fcd%3A0x2b4137b25f265504!2sNew%20English%20High%20School%20%26%20Junior%20College!5e0!3m2!1sen!2sin!4v1757598679019!5m2!1sen!2sin"
+        width="100%"
+        height="350"
+        frameborder="0"
+        style="border:0; border-radius: 10px;"
+        allowfullscreen=""
+        aria-hidden="false"
+        tabindex="0">
+      </iframe>
     </div>
 
-    <div class="contact-info">
-      <h2>Contact Us</h2>
-      <p><strong>Email:</strong> info@mkmkho.com</p>
-      <p><strong>Phone:</strong> +91 98765 43210</p>
-      <p><strong>Address:</strong> MKM Sports Complex, Nagpur, India</p>
-    </div>
+    <!-- Contact Info Section -->
+   <div class="contact-info">
+  <h2>Contact Us</h2>
+  <p><i class="fas fa-envelope"></i> <strong>Email:</strong> mkm@gmail.com</p>
+  <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +91 9823659655, +91 9518986917, +91 9225220555</p>
+  <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 43JJ+3P9, Congress Nagar, Dhantoli, Nagpur, Maharashtra 440012</p>
+</div>
+
   </div>
 </section>
+
+
 
 <!-- Footer (kept minimal) -->
 <footer class="site-footer">
